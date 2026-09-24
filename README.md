@@ -36,6 +36,35 @@
 | `brandkit` | 로고·색·글꼴을 한 장에 담은 브랜드 키트 이미지 프롬프트 (이미지 생성 도구 필요) |
 | `stitch-skill` | Google Stitch 에 넣을 `DESIGN.md` 작성 |
 
+## 클라우드 세션(claude.ai/code)에서 — 주로 쓰는 곳
+
+클라우드 세션은 매번 새 컨테이너라 설치가 남지 않는다. 대신 **클라우드 환경 설정에 한 번 넣어 두면 새 세션마다 자동으로
+설치된다.**
+
+1. 세션 화면 제목줄의 클라우드 환경 메뉴 → **편집(Edit)**.
+2. **설정 스크립트(Setup script)** 에 붙여 넣는다 (여러 번 돌아도 오류 없음):
+
+   ```bash
+   claude plugin marketplace add sunggom2/claude-toolkit
+   claude plugin install archify@claude-toolkit
+   claude plugin install taste-skill@claude-toolkit
+   claude plugin install playwright@claude-toolkit
+   ```
+
+3. **환경 변수** 에 넣는다 (컨테이너에는 Chrome 도 화면도 없어서, 미리 깔린 Chromium 을 화면 없이 쓰게 한다):
+
+   ```
+   PLAYWRIGHT_MCP_BROWSER=chromium
+   PLAYWRIGHT_MCP_EXECUTABLE_PATH=/opt/pw-browsers/chromium
+   PLAYWRIGHT_MCP_HEADLESS=true
+   PLAYWRIGHT_MCP_OUTPUT_DIR=/tmp/playwright-mcp
+   ```
+
+4. 저장하고 **새 세션을 연다** (이미 열려 있는 세션에는 적용되지 않는다). 새 세션에서 `/plugin` 이나 스킬 목록에
+   `archify:archify`, `taste-skill:…` 이 보이면 된다.
+
+이 저장소를 고치면 다음 새 세션부터 저절로 새 내용이 설치된다.
+
 ## PC에 설치 (컴퓨터마다 한 번)
 
 Claude Code 안에서:
@@ -54,28 +83,6 @@ Claude Code 안에서:
 - Playwright 는 Node.js 가 있어야 하고 PC 에 설치된 Google Chrome 을 쓴다.
 - 이 저장소를 고친 뒤 PC 에 반영: `/plugin marketplace update claude-toolkit` → `/plugin update <플러그인>@claude-toolkit`.
   플러그인 내용을 바꿀 때는 그 플러그인의 `.claude-plugin/plugin.json` `version` 을 올린다.
-
-## 클라우드 세션(claude.ai/code)에서
-
-클라우드 세션은 매번 새 컨테이너라 PC 설치가 따라오지 않는다. 클라우드 환경 설정(세션 제목줄의 환경 메뉴 → 편집)에 넣는다.
-
-설정 스크립트:
-
-```bash
-claude plugin marketplace add sunggom2/claude-toolkit
-claude plugin install archify@claude-toolkit
-claude plugin install taste-skill@claude-toolkit
-claude plugin install playwright@claude-toolkit
-```
-
-환경 변수 (컨테이너에는 Chrome 도 화면도 없어서, 미리 깔린 Chromium 을 화면 없이 쓰게 한다):
-
-```
-PLAYWRIGHT_MCP_BROWSER=chromium
-PLAYWRIGHT_MCP_EXECUTABLE_PATH=/opt/pw-browsers/chromium
-PLAYWRIGHT_MCP_HEADLESS=true
-PLAYWRIGHT_MCP_OUTPUT_DIR=/tmp/playwright-mcp
-```
 
 ## 회사 작업에 쓸 때 주의
 
