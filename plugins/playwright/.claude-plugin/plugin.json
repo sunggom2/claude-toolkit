@@ -1,0 +1,10 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "description": "Playwright 브라우저 자동화 MCP 서버 (@playwright/mcp) — macOS·Linux·클라우드 세션용",
+  "author": {
+    "name": "Microsoft"
+  },
+  "homepage": "https://github.com/microsoft/playwright-mcp",
+  "license": "Apache-2.0"
+}

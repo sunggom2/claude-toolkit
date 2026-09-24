@@ -1,0 +1,10 @@
+{
+  "name": "playwright-windows",
+  "version": "1.0.0",
+  "description": "Playwright 브라우저 자동화 MCP 서버 (@playwright/mcp) — Windows PC용 (cmd /c npx)",
+  "author": {
+    "name": "Microsoft"
+  },
+  "homepage": "https://github.com/microsoft/playwright-mcp",
+  "license": "Apache-2.0"
+}

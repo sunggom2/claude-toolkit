@@ -1,0 +1,11 @@
+{
+  "name": "taste-skill",
+  "version": "1.0.0",
+  "description": "프론트엔드 디자인 감각 스킬 13종 (brutalist · minimalist · soft · redesign · stitch 등)",
+  "author": {
+    "name": "leonxlnx"
+  },
+  "homepage": "https://github.com/leonxlnx/taste-skill",
+  "repository": "https://github.com/leonxlnx/taste-skill",
+  "license": "MIT"
+}
